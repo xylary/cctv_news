@@ -70,6 +70,7 @@ for i in range(len(rank_date_list)):
         single_news_content = curr_news_df.content.iloc[j]
         news_seg_df = pd.DataFrame(seg.cut(single_news_content), columns=['word','tag'])
         news_seg_concise = news_seg_df.loc[(news_seg_df['tag']!="w")&(news_seg_df['tag']!="u")&(news_seg_df['tag']!="t")&(news_seg_df['tag']!="p")&(news_seg_df['tag']!="c")&(news_seg_df['tag']!="r")&(news_seg_df['tag']!="y")&(news_seg_df['tag']!="e")&(news_seg_df['tag']!="o")&(news_seg_df['tag']!="h")&(news_seg_df['tag']!="k")&(news_seg_df['tag']!="nr")]
+        news_seg_concise.reset_index(drop=True, inplace=True)
         single_news_score = np.zeros(len(sector_keywords))
         
         for k in range(len(news_seg_concise)):
